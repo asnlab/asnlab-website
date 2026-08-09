@@ -1,0 +1,170 @@
+{
+	"navigator" : {
+		
+	},
+	"downloads" : {
+		"updatesite" : "https://www.asnlab.org/updates",
+		"compilers" : {
+			"asndt" : {
+				"name" : "ASN.1 SDK (plugins included)",
+				"anchor" : "ASN1_Development_Tools",
+				"location" : "updates/asndt.zip",
+				"version" : "3.14.1 - 2014-09-09",
+				"size" : "4.76 MB",
+				"md5" : "992d4416e285b340a7b15c50260f3e56"
+			},
+			"asncc" : {
+				"name" : "ASN.1 C Compiler",
+				"anchor" : "ASN1_C_Compiler",
+				"location" : "updates/asncc.zip",
+				"version" : "3.14.15 - 2014-09-09",
+				"size" : "3.75 MB",
+				"md5" : "8ea9976bbd524e631fd80be110fd8d09"
+			},
+			"asncpp" : {
+				"name" : "ASN.1 C++ Compiler",
+				"anchor" : "ASN1_C++_Compiler",
+				"location" : "updates/asncpp.zip",
+				"version" : "3.14.15 - 2014-09-04",
+				"size" : "3.68 MB",
+				"md5" : "00dfb86a3d6c64aa3cdfc6ca929edd98"
+			},
+			"asnjc" : {
+				"name" : "ASN.1 Java Compiler",
+				"anchor" : "ASN1_Java_Compiler",
+				"location" : "updates/asnjc.zip",
+				"version" : "3.14.15 - 2014-09-04",
+				"size" : "4.06 MB",
+				"md5" : "896ec9ecb16e82bca06477b631b6a833"
+			}
+		},
+		"asncl" : {
+			"name" : "ASN.1 Compiler CLI (C/Java only)",
+			"anchor" : "Download_the_ASN1_Compiler_Command_Line",
+			"location" : "updates/asncl.zip",
+			"version" : "3.14.15 - 2013-12-19",
+			"size" : "1.13 MB",
+			"md5" : "c56a0f2e43eccbb019b7e36917de0c90"
+		},
+		"runtimes" : {
+			"c": {
+				"mac64": {
+					"name" : "Mac OS X 64-bit",
+					"file" : "asnrt_macos_x64-3.14.15.zip",
+					"location" : "asncc/asnrt_macos_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "84.07 KB",
+					"md5": "95d4334445ddd8e5083d138bbe12de33"
+				},
+				"mac32": {
+					"name" : "Mac OS X 32-bit",
+					"file" : "asnrt_macos_x86-3.14.15.zip",
+					"location" : "asncc/asnrt_macos_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "77.5 KB",
+					"md5": "2836781cce5b557c3766bb5560aaece9"
+				},
+				"linux64": {
+					"name" : "Linux 64-bit",
+					"file" : "asnrt_linux_x64-3.14.15.zip",
+					"location" : "asncc/asnrt_linux_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "71.21 KB",
+					"md5": "1e3e6c8c97671428b4f021a825c92c8b"
+				},
+				"linux32": {
+					"name" : "Linux 32-bit",
+					"file" : "asnrt_linux_x86-3.14.15.zip",
+					"location" : "asncc/asnrt_linux_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "61.01 KB",
+					"md5": "ef1b52c98685cc8d55546ac31c0f063c"
+				},
+				"win64": {
+					"name" : "Windows 64-bit",
+					"file" : "asnrt_windows_x64-3.14.15.zip",
+					"location" : "asncc/asnrt_windows_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "208.74 KB",
+					"md5": "0242d236e98a9ca6fc60ab343e8f881a"
+				},
+				"win32": {
+					"name" : "Windows 32-bit",
+					"file" : "asnrt_windows_x86-3.14.15.zip",
+					"location" : "asncc/asnrt_windows_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-01-02",
+					"size": "178.5 KB",
+					"md5": "cafeff00a5113ac6e31b7fd7b74714d3"
+				}
+			},
+			"cpp": {
+				"mac64": {
+					"name" : "Mac OS X 64-bit",
+					"file" : "asnrt_macos_x64-3.14.15.zip",
+					"location" : "asncpp/asnrt_macos_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "310.08 KB",
+					"md5": "685f63d68f35fac7f22284ead0958e1a"
+				},
+				"mac32": {
+					"name" : "Mac OS X 32-bit",
+					"file" : "asnrt_macos_x86-3.14.15.zip",
+					"location" : "asncpp/asnrt_macos_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "298.6 KB",
+					"md5": "b0ff3e67b3502fd91f009476a3232cff"
+				},
+				"linux64": {
+					"name" : "Linux 64-bit",
+					"file" : "asnrt_linux_x64-3.14.15.zip",
+					"location" : "asncpp/asnrt_linux_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "495.8 KB",
+					"md5": "3a763b332ad443daa493bd7b02b75c10"
+				},
+				"linux32": {
+					"name" : "Linux 32-bit",
+					"file" : "asnrt_linux_x86-3.14.15.zip",
+					"location" : "asncpp/asnrt_linux_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "402.34 KB",
+					"md5": "50b62d5bdad1cd26f37d03ca71697f73"
+				},
+				"win64": {
+					"name" : "Windows 64-bit",
+					"file" : "asnrt_windows_x64-3.14.15.zip",
+					"location" : "asncpp/asnrt_windows_x64-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "2.43 MB",
+					"md5": "365c008bf4f3b3ac7053b30778af616f"
+				},
+				"win32": {
+					"name" : "Windows 32-bit",
+					"file" : "asnrt_windows_x86-3.14.15.zip",
+					"location" : "asncpp/asnrt_windows_x86-3.14.15.zip",
+					"version": "3.14.15 - 2014-04-30",
+					"size": "2.24 MB",
+					"md5": "1c6795a24936b6673b1db50d28813bca"
+				}
+			},
+			"java": {
+				"javase": {
+					"name" : "Java SE",
+					"file" : "asnrt_javase-3.14.15.zip",
+					"location" : "asnjc/asnrt_javase-3.14.15.zip",
+					"version": "3.14.15 - 2014-07-31",
+					"size": "597.78 KB",
+					"md5": "a7c64e5ccfe837496a66c3384ec93557"
+				},
+				"android": {
+					"name" : "Android",
+					"file" : "asnrt_android-3.14.15.zip",
+					"location" : "asnjc/asnrt_android-3.14.15.zip",
+					"version": "3.14.15 - 2014-07-31",
+					"size": "602.03 KB",
+					"md5": "721b30d31b8b29dccc1d49b148f3b5f0"
+				}
+			}
+		}
+	}
+}

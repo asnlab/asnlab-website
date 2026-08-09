@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<script type="text/javascript" language="JavaScript">
+			ORIGINAL_PAGE_PATH = "/asnjc/gettingstarted.html";
+		</script>
+	
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<title>Getting Started With ASN.1 Java Compiler</title>
+		<script type="text/javascript"><!--
+			(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")} var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT) window.jstiming.pt=window.external.pageT;})();
+		
+			var _tocPath_ = '/_toc.ezt';
+			var codesite_token = null;
+			var logged_in_user_email = null;
+	//--></script>
+
+		<link href="../css/style.css" type="text/css" rel="stylesheet">
+		<script src="../js/head.js" type="text/javascript"></script>
+		<link rel="search" type="application/opensearchdescription+xml" title="ASN Lab" href="https://www.asnlab.org/osd.xml">
+
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="../css/iehacks.css"><![endif]-->
+
+		<link href="../css/semantic_headers.css" rel="stylesheet" type="text/css" />
+		<link href="../css/local_extensions.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body class="gc-documentation">
+	
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+
+			var cookiePath = '/';
+			if (cookiePath.lastIndexOf('.html') > cookiePath.lastIndexOf('/')) {
+				cookiePath = cookiePath.substring(0, cookiePath.lastIndexOf('/') + 1);
+			};
+
+			_gaq.push(
+				['siteTracker._setAccount', 'UA-9843258-2'],
+				['siteTracker._setDomainName', 'www.asnlab.org'],
+				['siteTracker._trackPageview']
+			);
+			
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				(document.getElementsByTagName('head')[0] ||document.getElementsByTagName('body')[0]).appendChild(ga);
+			})();
+		</script>
+
+		<div id="gb">
+			<span>
+				<a id="lang-dropdown" href="https://www.asnlab.org" onclick="return false;">
+					<span style="text-decoration:underline">English</span>
+					<span style="font-size:.75em;">&#9660;</span>
+				</a>
+			</span>
+		</div>
+		
+		<div class="gbh" style="left:0px;"></div>
+		<div class="gbh" style="right:0px;"></div>
+
+		<div id="gc-container">
+			<a id="top"></a>
+			<div id="skipto">
+				<a href="#gc-pagecontent">Skip to page content</a>
+				<a href="#gc-toc">Skip to main navigation</a>
+			</div>
+
+			<div id="gc-header">				
+				<div id="logo" style="position:relative;float:left;">
+					<a href="https://www.asnlab.org">
+						<img src="../images/logo.gif" height="40" width="167" alt="ASN Lab" style="border:0;margin:3px 0 0 0;">
+					</a>
+				</div>
+				<div id="search" style="float:right;margin-top:12px;margin-bottom:12px; ">
+					<div id="searchForm">
+						<form id="cse" action="https://www.google.com/cse">
+							<input type="hidden" name="cx" value="002929618136242188560:dxqk6bfzcpi">
+							<input type="hidden" name="ie" value="UTF-8">
+							<div style="float:left;">
+								<input id="gsearchInput"  type="text" name="q" size="15" style="background-image: url(/images/google_site_search_watermark.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat no-repeat; ">
+							</div>
+							<div style="float:left; margin-left: 6px;">
+								<input id="gsearchButton" type="submit" name="sa" value="Search">
+							</div>
+						</form>
+						<script type="text/javascript" src="../js/brand.js"></script>
+					</div> <!-- end searchForm -->
+				</div> <!-- end search -->
+				<br style="display:block;clear:both;height:0;font-size:0;line-height:0;"/>
+			</div> <!-- end gc-header -->
+
+			<div id="codesiteContent">
+
+				<a id="gc-topnav-anchor"></a>
+				<div id="gc-topnav">
+					<ul id="docs" class="gc-topnav-tabs">
+						<li id="home_link"><a href="../index.html" title="ASN Lab home page">Home</a></li>
+						<li id="products_link"><a href="../products.html" class="selected" title="ASN Lab products">Products</a></li>
+						<li id="downloads_link"><a href="../downloads.html" title="Download ASN.1 products">Downloads</a></li>
+						<li id="faq_link"><a href="../support.html" title="Answers to frequently asked questions about ASN Lab">Support</a></li>
+						<li><a href="https://code.google.com/p/asndt/w/list" title="ASN.1 Development Tools Wiki">Wiki</a></li>
+						<!--li><a href="https://asndt.blogspot.com/" title="ASN Lab official blog">Blog</a></li-->
+						<li><a href="../terms.html" title="ASN Lab terms of services">Terms</a></li>
+					</ul>
+					</ul>
+				</div> <!-- end gc-topnav -->
+
+				<div class="g-section g-tpl-170">
+					<div class="g-unit g-first" id="gc-toc">
+						<ul>
+							<li><a href="../downloads.html">Downloads</a></li>
+							<li><a href="../installing.html">Installing</a></li>
+							<li><a href="../freetrial.html">Free Trial</a><sup class="new">New!</sup></li>
+							<li><a href="../glossary.html">Glossary</a><sup class="new">New!</sup></li>
+							<li><a href="https://code.google.com/p/asndt/issues/list">Issue Tracker</a></li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><h2>ASN.1 Development Tools</h2>
+								<ul>
+									<li><a href="../asndt/overview.html">Overview</a></li>
+									<li><a href="../asndt/gettingstarted/index.html">Getting Started</a>
+										<ul>
+											<li><a href="../asndt/gettingstarted/developingasn1project.html">Developing ASN.1 project</a></li>
+											<li><a href="../asndt/gettingstarted/creatingasn1module.html">Creating an ASN.1 Module</a></li>
+											<li><a href="../asndt/gettingstarted/openingasn1editor.html">Opening an ASN.1 editor</a></li>
+											<li><a href="../asndt/gettingstarted/addingtypes.html">Adding new types</a></li>
+											<li><a href="../asndt/gettingstarted/formattingcode.html">Formatting your code</a></li>
+											<li><a href="../asndt/gettingstarted/identifyingproblems.html">Identifying problems</a></li>
+											<li><a href="../asndt/gettingstarted/usingquickviews.html">Using quick views</a></li>
+											<li><a href="../asndt/gettingstarted/openingdeclaration.html">Opening declaration </a></li>
+											<li><a href="../asndt/gettingstarted/usinglocalhistory.html">Using the local history </a></li>
+										</ul>
+									</li>
+									<li><a href="../asndt/concepts.html">Concepts</a></li>
+									<li><a href="../asndt/reference/index.html">Reference</a>
+										<ul>
+											<li><a href="../asndt/reference/asn1editor.html">ASN.1 Editor</a></li>
+											<li><a href="../asndt/reference/folding.html">Folding</a></li>
+											<li><a href="../asndt/reference/formatter.html">Formatter </a></li>
+											<li><a href="../asndt/reference/hovers.html">Hovers</a></li>
+											<li><a href="../asndt/reference/syntaxcoloring.html">Syntax Coloring</a></li>
+											<li><a href="../asndt/reference/typing.html">Typing</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><h2>ASN.1 C Compiler</h2>
+								<ul>
+									<li><a href="../asncc/overview.html">Overview</a></li>
+									<li><a href="../asncc/gettingstarted.html">Getting Started</a></li>
+									<li><a href="../asncc/asnrt.html">ASN.1 Runtime</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><h2>ASN.1 C++ Compiler</h2>
+								<ul>
+									<li><a href="../asncpp/overview.html">Overview</a></li>
+									<li><a href="../asncpp/gettingstarted.html">Getting Started</a></li>
+									<li><a href="../asncpp/asnrt.html">ASN.1 Runtime</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><h2>ASN.1 Java Compiler</h2>
+								<ul>
+									<li><a href="overview.html">Overview</a></li>
+									<li><a href="gettingstarted.html">Getting Started</a></li>
+									<li><a href="asnrt.html">ASN.1 Runtime</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><h2>Resources</h2>
+								<ul>
+									<li><a href="../faqs.html">FAQs</a></li>
+									<li><a href="https://code.google.com/p/asndt/wiki">Wiki</a></li>
+									<li><a href="../features.html">Features</a><sup class="new">New!</sup></li>
+									<li><a href="https://code.google.com/p/asndt/downloads/list">Sample Codes</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="line"></div>
+						<ul>
+							<li><a href="../roadmap.html">Product Roadmap</a></li>
+							<li><a href="https://code.google.com/p/asndt/wiki/ReleaseNotes">Release Notes</a></li>
+						</ul>
+
+					</div>
+					
+					<div class="g-unit" id="gc-pagecontent">
+						<h1 class="page_title">Getting Started with ASN.1 Java Compiler</h1>
+						<p>The best way of learning any language or notation is to read some examples of it. In this tutorial, we will walk you through creating and running a simple ASN.1 application. For more details, please see the ASN.1 Java Compiler User's Guide. </p>
+						
+						<h2>Installing the ASN.1 Java Compiler</h2>
+						<p>Click <a href="../downloads.html#update_site">here</a> for instructions on how to download and install the ASN.1 SDK and ASN.1 Java Compiler plugin.</p>
+						<h2>Setting up the License</h2>
+						<p>Request a <a href="../freetrial.html?product=asnjc">trial license</a> or purchase a <a href="https://licensing.asnlab.org/purchase.jsp">permanent license</a> from ASN Lab website. In Eclipse click <strong>Windows</strong> (on Mac, <strong>Eclipse</strong>) &gt; <strong>Preferences</strong> &gt; <strong>ASN.1</strong> &gt; <strong>ASN.1 Java Compiler</strong> to open the ASN.1 Java Compiler preference page, enter the serial number of license in the General section and click OK.</p>
+						
+						<h2>The MyHTTP Example</h2>
+						<p>
+							The <code>MyHTTP</code> example is adapted from 
+							<a href="https://www.w3.org/Protocols/HTTP-NG/asn1.html">https://www.w3.org/Protocols/HTTP-NG/asn1.html</a>, 
+							it's a simplified form of the GET request from FHTTP. 
+							For our example, suppose that we need to employ the ASN.1 module as we have seen in the ASN.1 Development Tools 
+							<a href="../asndt/gettingstarted/creatingasn1module.html">getting started tutorial</a>.
+						</p>
+						<ol>
+							<li>Select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Project...</strong></li>
+							<li>Under <strong>ASN.1</strong> category, select <strong>ASN.1 Project</strong>, then click <strong>Next</strong>.</li>
+							<li>For project name, enter 'MyHTTP' and click <strong>Finish</strong>.</li>
+							<li>ASN.1 files may now be added to the project by copying to the source folder, or creating ASN.1 files from scratch by</li>
+							<li>Select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Other...</strong></li>
+							<li>Under the <strong>ASN.1</strong> category, select <strong>ASN.1 Module</strong>, then click <strong>Next</strong>.</li>
+							<li>For module name, enter 'MyHTTP' and click <strong>Finish</strong>.</li>
+							<li>Enter the following content in the opening editor:
+								<div class="source">
+<pre>MyHTTP <font color="#7F0055"><b>DEFINITIONS</b>
+</font>AUTOMATIC TAGS ::=
+<font color="#7F0055"><b>BEGIN</b></font>
+
+   GetRequest ::= <font color="#7F0055"><b>SEQUENCE</b></font> {
+      <font color="#B8860B">header-only</font>   <font color="#5F9EA0">BOOLEAN</font>,
+      <font color="#B8860B">lock</font>          <font color="#5F9EA0">BOOLEAN</font>,
+      <font color="#B8860B">accept-types</font>  AcceptTypes,
+      <font color="#B8860B">url</font>           Url,
+      ...,
+      <font color="#B8860B">timestamp</font>     <font color="#5F9EA0">GeneralizedTime</font>
+   }
+
+   AcceptTypes ::= <font color="#7F0055"><b>SET</b></font> {
+      <font color="#B8860B">standards</font>   <font color="#5F9EA0">BIT STRING</font> { <font color="#2A00FF">html(0), plain-text(1), gif(2), jpeg(3)</font> } (<font color="#228B22">SIZE</font>(4)) <font color="#666666">OPTIONAL</font>,
+      <font color="#B8860B">others</font>      <font color="#7F0055"><b>SEQUENCE OF</b></font> <font color="#5F9EA0">VisibleString</font> (<font color="#228B22">SIZE</font>(4)) <font color="#666666">OPTIONAL</font>
+   }
+
+   Url ::= <font color="#5F9EA0">VisibleString</font> (<font color="#7F0055"><b>FROM</b></font>(<font color="#2A00FF">"a".."z"|"A".."Z"|"0".."9"|"./-_~%#"</font>))
+
+   <font color="#2A00FF">myRequest</font> GetRequest ::= {
+      <font color="#B8860B">header-only</font>  <font color="#5F9EA0">TRUE</font>,
+      <font color="#B8860B">lock</font>         <font color="#5F9EA0">FALSE</font>,
+      <font color="#B8860B">accept-types</font> {
+         <font color="#B8860B">standards</font> { <font color="#2A00FF">html</font>, <font color="#2A00FF">plain-text</font> }
+      },
+      <font color="#B8860B">url</font>          <font color="#2A00FF">"www.asnlab.org"</font>,
+      <font color="#B8860B">timestamp</font>    <font color="#2A00FF">"20121221121221Z"</font>
+   }
+
+<font color="#7F0055"><b>END</b></font></pre>
+								</div>
+							</li>
+							<li>Save the ASN.1 file, then the compiled Java classes files will be automatically generated (If not, please set up license).</li>
+							<li>Create a Java project <strong>test</strong>, and add the <a href="../downloads.html#ASN1_Runtime_Library_for_Java">ASN.1 Java Runtime</a> to the build path.</li>
+							<li>Copy the generated Java class files into proper package ("MyHTTP" in this case) folder in the project.</li>
+							<li>Create a <strong>TestMyHttp.java</strong> file in the project with the following contents:
+								<div class="source"><pre>
+import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
+
+import MyHTTP.AcceptTypes;
+import MyHTTP.GetRequest;
+import MyHTTP.Standards;
+
+
+public class TestMyHttp {
+
+   public static void main(String[] args) throws Exception {
+      GetRequest getRequest=new GetRequest();
+      getRequest.header_only=true;
+      getRequest.lock=false;
+      getRequest.accept_types=new AcceptTypes();
+      getRequest.accept_types.standards=new Standards(new byte[1],(byte)4);
+      getRequest.accept_types.standards.setHtml();
+      getRequest.accept_types.standards.setPlain_text();
+      getRequest.url="www.asnlab.org";
+      Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+      cal.set(Calendar.YEAR, 2012);
+      cal.set(Calendar.MONTH, Calendar.DECEMBER);
+      cal.set(Calendar.DAY_OF_MONTH, 21);
+      cal.set(Calendar.HOUR_OF_DAY, 12);
+      cal.set(Calendar.MINUTE, 12);
+      cal.set(Calendar.SECOND, 21);
+      cal.set(Calendar.MILLISECOND, 0);
+      getRequest.timestamp = cal.getTime();
+      ByteArrayOutputStream bos=new ByteArrayOutputStream();
+      getRequest.ber_encode(bos);
+      byte[] bs=bos.toByteArray();
+      for(int i=0; i&lt;bs.length; i++) {
+         System.out.printf("%02X ", bs[i] &amp; 0xFF);
+      }
+   }
+
+}</pre>
+								</div>
+							</li>
+							<li>Compile the project if the <strong>Build automatically</strong> is turn off.</li>
+							<li>Right click the file <strong>TestMyHttp.java</strong> and select <strong>Run as</strong> &gt; <strong>Java Application</strong>:
+								<p>
+									<code><font color="red">30 2D 80 01 FF 81 01 00 A2 04 80 02 04 C0 83 0E 77 77 77 2E 61 73 6E 6C 61 62 2E 6F 72 67 84 0F 32 30 31 32 31 32 32 31 31 32 31 32 32 31 5A</font></code>
+								</p>
+							</li>
+						</ol>
+						<p>Here's the explanation of the encoded bits and bytes in BER:
+							<div class="source"><pre style="background-color: white; border: 0px;">
+0x30 -- [0011|0000], [UNIVERSAL, CONSTRUCTED, 16(SEQUENCE)] - GetRequest
+0x2D -- [0010|1101], length 45
+
+0x80 -- [1000|0000], [CONTEXT, PRIMITIVE, 0(BOOLEAN)] GetRequest.header_only
+0x01 -- [0000|0001], length 1
+0xFF -- [0000|1111], value TRUE
+
+0x81 -- [1000|0001], [CONTEXT, PRIMITIVE, 1(BOOLEAN)] GetRequest.lock
+0x01 -- [0000|0001], length 1
+0x00 -- [0000|0000], value FALSE
+
+0xA2 -- [1010|0010], [CONTEXT, CONSTRUCTED, 2(SET)] - GetRequest.accept_types
+0x04 -- [0000|0100], length 4
+
+0x80 -- [1000|0000], [CONTEXT, PRIMITIVE, 0(BIT STRING)] AcceptTypes.standards
+0x02 -- [0000|0010], length 2
+0x04 -- [0000|0100], 4 unused bits
+0xC0 -- [1100|0000], {html, plaint_text}
+
+0x83 -- [1000|0011], [CONTEXT, PRIMITIVE, 3(VisibleString)] GetRequest.url
+0x0E -- [0000|1100], length 14
+0x77 0x77 0x77 0x2E 0x61 0x73 0x6E 0x6C 0x61 0x62 0x2E 0x6F 0x72 0x67 -- www.asnlab.org
+
+0x84 -- [1000|0011], [CONTEXT, PRIMITIVE, 4(GeneralizedTime)] GetRequest.timestamp
+0x0F -- [0000|1100], length 15
+0x32 0x30 0x31 0x32 0x31 0x32 0x32 0x31 0x31 0x32 0x31 0x32 0x32 0x31 0x5A -- 20121221121221Z</pre>
+							</div>
+						</p>
+						
+						<h2>More Information</h2>
+						<p>For more information regarding ASN.1 Runtime Library, please refer to the <a href="asnrt.html">ASN.1 Java Runtime Library User Guide</a>.</p>
+						
+					</div><!-- end gc-pagecontent -->
+				</div><!-- end gooey wrapper -->
+ 			</div> <!-- end codesite content -->
+
+			<div id="gc-footer" dir="ltr">
+				<div class="text">
+					<div class="notice">
+						<div id="notice" style="text-align: center; border: 1em 0em 1em 0em">The content of this page is licensed under the 
+							<a rel="license"href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, 
+							and code samples are licensed under the <a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>.
+						</div>
+						Java is a registered trademark of Oracle Corporation and/or its affiliates
+					</div>
+					&copy;2009-2014 ASN Lab - <a href="https://www.asnlab.org">ASN Lab Home</a> - 
+					<a href="../terms.html">Terms of Service</a> -
+					<a href="../privacy.html">Privacy Policy</a>
+					<!--br> <br>
+					ASN Lab offered in:
+					<a href="https://en.asnlab.org">English</a> -
+					<a href="https://es.asnlab.org">Español</a> -
+					<a href="https://jp.asnlab.org">日本語</a> -
+					<a href="https://kr.asnlab.org">한국어</a> -
+					<a href="https://pt.asnlab.org">Português</a> -
+					<a href="https://ru.asnlab.org">Pусский</a> -
+					<a href="https://cn.asnlab.org">中文(简体)</a> -
+					<a href="https://tw.asnlab.org">中文(繁體)</a-->
+				</div>
+			</div><!-- end gc-footer -->
+		</div><!-- end gc-container -->
+		<script src="../js/tail.js" type="text/javascript"></script>
+	</body>
+</html>

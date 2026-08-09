@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-cn"> <head><meta charset="UTF-8"><meta name="description" content="ASN Lab - Powerful ASN.1 Development Tools and Compilers"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>快速入门 | ASN Lab</title><style>:root{--bg-primary: #FAFAFA;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #666666;
+    --accent-cyan: #0056b3;
+    --accent-blue: #004085;
+    --accent-gradient: linear-gradient(135deg, #0056b3, #004085);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    --input-bg: rgba(0, 0, 0, 0.04);
+    --input-border: rgba(0, 0, 0, 0.1);
+    --input-placeholder: rgba(102, 102, 102, 0.4);}</style><link rel="stylesheet" href="/_astro/index.CyuYbHQw.css">
+<style>.tabs-container[data-astro-cid-xlvzfuxv]{margin:2rem 0;border:1px solid var(--glass-border);border-radius:8px;background:var(--bg-primary);overflow:hidden}.tabs-header[data-astro-cid-xlvzfuxv]{display:flex;border-bottom:1px solid var(--glass-border);background:var(--bg-secondary);overflow-x:auto}.tab-button[data-astro-cid-xlvzfuxv]{padding:1rem 1.5rem;border:none;background:transparent;color:var(--text-secondary);font-weight:500;font-size:1rem;cursor:pointer;transition:all .2s ease;border-bottom:2px solid transparent;white-space:nowrap}.tab-button[data-astro-cid-xlvzfuxv]:hover{color:var(--text-primary);background:var(--bg-primary)}.tab-button[data-astro-cid-xlvzfuxv].active{color:var(--accent-cyan);border-bottom-color:var(--accent-cyan);background:var(--bg-primary)}.tabs-content[data-astro-cid-xlvzfuxv]{padding:2rem}.tab-panel[data-astro-cid-r7gez2uh]{animation:fadeIn .3s ease}@keyframes fadeIn{0%{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+</style></head> <body> <header> <div class="container nav-container"> <div class="logo" style="display:flex; align-items:center;"> <a href="/zh-cn/"> <img src="/logo.gif" alt="ASN Lab" height="40" style="margin-top:5px;"> </a> </div> <nav class="nav-links"> <a href="/zh-cn/">主页</a> <a href="/zh-cn/products">产品</a> <a href="/zh-cn/getting-started">快速入门</a> <a href="/zh-cn/downloads">下载</a> <a href="/zh-cn/purchase" class="btn" style="padding: 0.5rem 1rem;">购买</a> <a href="/zh-cn/free-trial" class="btn btn-secondary" style="padding: 0.5rem 1rem;">免费试用</a> <!-- Language Switcher --> <select class="lang-switcher" id="lang-switcher" style="margin-left: 1rem;"> <option value="/getting-started/">English</option> <option value="/zh-cn/getting-started/" selected>中文</option> </select> </nav> </div> </header> <main>  <section class="container" style="padding: 4rem 2rem; min-height: 80vh;"> <div class="glass-panel" style="max-width: 1200px; margin: 0 auto;"> <h1 style="color: var(--accent-cyan); margin-bottom: 2rem;">ASN.1 SDK 快速入门</h1> <div style="line-height: 1.8; font-size: 1.1rem; display: flex; flex-direction: column; gap: 1.5rem;"> <p>
+ASN.1 SDK 提供统一的命令行工作流，将 ASN.1 规范编译为 C、C++、Java、C# 和 Go 源代码。本指南涵盖安装、许可证激活、项目设置和编译。
+</p> <h2>1. 安装</h2> <p>
+SDK 需要 Java 17 或更高版本。从<a href="/zh-cn/downloads" style="color: var(--accent-cyan);">下载</a>页面下载 SDK 压缩包并解压：
+</p> <pre><code>unzip asn1-sdk-3.14.15.zip
+cd asn1-sdk-3.14.15</code></pre> <p>发行版包含 <code>asndt</code> 命令行工具、核心库和编译器插件：</p> <pre><code>bin/
+  asndt.sh    # Linux/macOS
+  asndt.bat   # Windows
+lib/
+  core/       # SDK 核心 JAR
+  plugins/    # 编译器插件 JAR</code></pre> <p>将 <code>bin/</code> 目录添加到 <code>PATH</code> 环境变量中，即可在任意目录下调用 <code>asndt</code> 命令：</p> <pre><code>export PATH=/path/to/asn1-sdk-3.14.15/bin:$PATH   # Linux/macOS
+:: Windows: 将 bin\ 目录添加到系统 PATH 中</code></pre> <h2>2. 激活许可证</h2> <p>
+从<a href="/zh-cn/free-trial" style="color: var(--accent-cyan);">免费试用</a>页面申请评估许可证。获得许可证密钥后，通过交互式命令激活：
+</p> <pre><code>asndt license</code></pre> <p>选择<strong>激活许可证</strong>，选择目标编译器，然后粘贴密钥。许可证存储在您的用户配置文件中，适用于所有项目。</p> <h2>3. 创建项目</h2> <p>
+创建新的 ASN.1 项目骨架：
+</p> <pre><code>asndt create MyProject</code></pre> <p>这会创建：</p> <pre><code>MyProject/
+  asn1.avn    # 项目配置
+  src/        # 放置 ASN.1 源文件
+  build/      # 生成输出</code></pre> <h2>4. MyHTTP 示例</h2> <p>
+将以下 ASN.1 模块保存为 <code>MyProject/src/MyHTTP.asn</code>。此示例改编自 <a href="https://www.w3.org/Protocols/HTTP-NG/asn1.html" style="color: var(--accent-cyan);" target="_blank">W3C HTTP-NG</a>：
+</p> <pre style="font-size: 0.9rem;"><code>MyHTTP DEFINITIONS
+AUTOMATIC TAGS ::=
+BEGIN
+   GetRequest ::= SEQUENCE {
+      header-only   BOOLEAN,
+      lock          BOOLEAN,
+      accept-types  AcceptTypes,
+      url           Url,
+      ...,
+      timestamp     GeneralizedTime
+   }
+   AcceptTypes ::= SET {
+      standards   BIT STRING { html(0), plain-text(1), gif(2), jpeg(3) } (SIZE(4)) OPTIONAL,
+      others      SEQUENCE OF VisibleString (SIZE(4)) OPTIONAL
+   }
+   Url ::= VisibleString (FROM("a".."z"|"A".."Z"|"0".."9"|"./-_~%#"))
+   myRequest GetRequest ::= {
+      header-only  TRUE,
+      lock         FALSE,
+      accept-types {
+         standards { html, plain-text }
+      },
+      url          "www.asnlab.org",
+      timestamp    "20121221121221Z"
+   }
+END
+</code></pre> <h2>5. 配置和编译</h2> <p>
+编辑 <code>MyProject/asn1.avn</code> 以启用目标编译器。在下面选择目标编程语言查看配置语法和代码集成：
+</p> <div class="tabs-container " data-astro-cid-xlvzfuxv> <div class="tabs-header" role="tablist" data-astro-cid-xlvzfuxv> <button type="button" role="tab" aria-selected="true" aria-controls="panel-c" id="tab-c" class="tab-button active" data-tab="c" data-astro-cid-xlvzfuxv> C </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-cpp" id="tab-cpp" class="tab-button " data-tab="cpp" data-astro-cid-xlvzfuxv> C++ </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-java" id="tab-java" class="tab-button " data-tab="java" data-astro-cid-xlvzfuxv> Java </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-csharp" id="tab-csharp" class="tab-button " data-tab="csharp" data-astro-cid-xlvzfuxv> C# </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-go" id="tab-go" class="tab-button " data-tab="go" data-astro-cid-xlvzfuxv> Go </button> </div> <div class="tabs-content" data-astro-cid-xlvzfuxv>  <div id="panel-c" role="tabpanel" aria-labelledby="tab-c" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3>C 配置</h3> <p>在 <code>asn1.avn</code> 中添加 C 编译器配置块：</p> <pre><code>compilers {
+    {
+        id "asncc",
+        language "c",
+        options {
+            output-folder "c",
+            mapping {
+                integer automatic,
+                real automatic,
+                size-of-int 4,
+                size-of-long 8,
+                size-of-xlong 8
+            }
+        }
+    }
+}</code></pre> <p>编译：</p> <pre><code>asndt compile MyProject</code></pre> <h3>集成</h3> <p>生成的输出位于 <code>MyProject/build/c/</code>。将 <code>.c</code> 和 <code>.h</code> 文件包含在构建中，并链接 C 运行时库。生成的代码提供 <code>encode_*</code> 和 <code>decode_*</code> 函数，接受编码规则常量（BER、DER、UPER、APER、OER、XER、JER）。</p>  </div>  <div id="panel-cpp" role="tabpanel" aria-labelledby="tab-cpp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3>C++ 配置</h3> <p>在 <code>asn1.avn</code> 中添加 C++ 编译器配置块：</p> <pre><code>compilers {
+    {
+        id "asncpp",
+        language "c++",
+        options {
+            output-folder "c++",
+            mapping {
+                integer automatic,
+                real automatic,
+                choice union
+            },
+            cpp-standard cpp17,
+            nullable-member shared-pointer
+        }
+    }
+}</code></pre> <p>编译：</p> <pre><code>asndt compile MyProject</code></pre> <h3>集成</h3> <p>生成的输出位于 <code>MyProject/build/c++/</code>。将 <code>.cpp</code> 和 <code>.h</code> 文件包含在构建中，并链接 C++ 运行时库。生成的类型提供 <code>encode</code> 和 <code>decode</code> 方法，接受编码规则常量。</p>  </div>  <div id="panel-java" role="tabpanel" aria-labelledby="tab-java" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3>Java 配置</h3> <p>在 <code>asn1.avn</code> 中添加 Java 编译器配置块：</p> <pre><code>compilers {
+    {
+        id "asnjc",
+        language "java",
+        options {
+            output-folder "java",
+            mapping {
+                integer automatic,
+                enumerated automatic,
+                real double,
+                list automatic
+            },
+            package-prefix "com.example"
+        }
+    }
+}</code></pre> <p>编译：</p> <pre><code>asndt compile MyProject</code></pre> <h3>集成</h3> <p>生成的输出位于 <code>MyProject/build/java/</code>，包名由模块名称派生。将 <code>asnrt</code> JAR 添加到类路径中。生成的类型提供 <code>encode</code> 和 <code>decode</code> 方法，接受 <code>EncodingRules</code> 常量。</p>  </div>  <div id="panel-csharp" role="tabpanel" aria-labelledby="tab-csharp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3>C# 配置</h3> <p>在 <code>asn1.avn</code> 中添加 C# 编译器配置块：</p> <pre><code>compilers {
+    {
+        id "asncsc",
+        language "c#",
+        options {
+            output-folder "c#",
+            mapping {
+                integer automatic,
+                real double
+            },
+            namespace-prefix "MyCompany.Protocols"
+        }
+    }
+}</code></pre> <p>编译：</p> <pre><code>asndt compile MyProject</code></pre> <h3>集成</h3> <p>生成的输出位于 <code>MyProject/build/c#/</code>。在 .NET 项目中添加对 C# 运行时库的引用。生成的类型提供 <code>Encode</code> 和 <code>Decode</code> 方法，接受编码规则常量。</p>  </div>  <div id="panel-go" role="tabpanel" aria-labelledby="tab-go" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3>Go 配置</h3> <p>在 <code>asn1.avn</code> 中添加 Go 编译器配置块：</p> <pre><code>compilers {
+    {
+        id "asngc",
+        language "go",
+        options {
+            output-folder "go",
+            mapping {
+                integer automatic-int64,
+                real automatic
+            }
+        }
+    }
+}</code></pre> <p>编译：</p> <pre><code>asndt compile MyProject</code></pre> <h3>集成</h3> <p>生成的输出位于 <code>MyProject/build/go/</code>。在模块中导入生成的 Go 包和 Go 运行时库。生成的类型提供 <code>Encode</code> 和 <code>Decode</code> 方法，接受编码规则常量。</p>  </div>   </div> </div>  <script type="module">function l(){document.querySelectorAll(".tabs-container").forEach(a=>{const c=a.querySelectorAll(".tab-button"),r=a.querySelectorAll(".tab-panel");c.forEach(t=>{t.addEventListener("click",()=>{c.forEach(e=>{e.classList.remove("active"),e.setAttribute("aria-selected","false")}),r.forEach(e=>{e.classList.remove("active"),e.style.display="none"}),t.classList.add("active"),t.setAttribute("aria-selected","true");const o=t.dataset.tab,s=a.querySelector(`#panel-${o}`);s&&(s.classList.add("active"),s.style.display="block")})})})}l();document.addEventListener("astro:page-load",l);</script> <h2>需要帮助？</h2> <p>如果遇到任何问题，欢迎发送邮件至 <a href="mailto:sales@asnlab.org" style="color: var(--accent-cyan);">sales@asnlab.org</a> 联系我们的支持团队。</p> </div> </div> </section>  </main>  <footer style="margin-top: 4rem; padding: 3rem 0; border-top: 1px solid var(--glass-border); text-align: center; color: var(--text-secondary); background: var(--glass-bg);"> <div class="container"> <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;"> <a href="/zh-cn/products" style="font-size: 0.9rem; color: var(--text-secondary);">Products</a> <a href="/zh-cn/downloads" style="font-size: 0.9rem; color: var(--text-secondary);">Downloads</a> <a href="/zh-cn/getting-started" style="font-size: 0.9rem; color: var(--text-secondary);">Documentation</a> <a href="/zh-cn/migrate-license" style="font-size: 0.9rem; color: var(--text-secondary);">License Migration</a> <a href="/zh-cn/free-trial" style="font-size: 0.9rem; color: var(--text-secondary);">Free Trial</a> <a href="/zh-cn/purchase" style="font-size: 0.9rem; color: var(--text-secondary);">Purchase</a> </div> <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem;"> <a href="/zh-cn/terms" style="font-size: 0.85rem; color: var(--text-secondary);">Terms</a> <a href="/zh-cn/privacy" style="font-size: 0.85rem; color: var(--text-secondary);">Privacy</a> <a href="/legacy/index.html" style="font-size: 0.85rem; color: var(--text-secondary);">旧版网站</a> </div> <p style="font-size: 0.85rem; color: var(--text-secondary);">&copy; 2026 ASN Lab. All rights reserved.</p> </div> </footer> <script type="module">document.getElementById("lang-switcher")?.addEventListener("change",e=>{window.location.href=e.target.value});</script> </body> </html>

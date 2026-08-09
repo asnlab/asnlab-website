@@ -1,0 +1,437 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="ASN Lab - Powerful ASN.1 Development Tools and Compilers"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/x-icon" href="/favicon.ico"><title>Getting Started | ASN Lab</title><style>:root{--bg-primary: #FAFAFA;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #666666;
+    --accent-cyan: #0056b3;
+    --accent-blue: #004085;
+    --accent-gradient: linear-gradient(135deg, #0056b3, #004085);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    --input-bg: rgba(0, 0, 0, 0.04);
+    --input-border: rgba(0, 0, 0, 0.1);
+    --input-placeholder: rgba(102, 102, 102, 0.4);}</style><link rel="stylesheet" href="/_astro/index.CyuYbHQw.css">
+<style>.tabs-container[data-astro-cid-xlvzfuxv]{margin:2rem 0;border:1px solid var(--glass-border);border-radius:8px;background:var(--bg-primary);overflow:hidden}.tabs-header[data-astro-cid-xlvzfuxv]{display:flex;border-bottom:1px solid var(--glass-border);background:var(--bg-secondary);overflow-x:auto}.tab-button[data-astro-cid-xlvzfuxv]{padding:1rem 1.5rem;border:none;background:transparent;color:var(--text-secondary);font-weight:500;font-size:1rem;cursor:pointer;transition:all .2s ease;border-bottom:2px solid transparent;white-space:nowrap}.tab-button[data-astro-cid-xlvzfuxv]:hover{color:var(--text-primary);background:var(--bg-primary)}.tab-button[data-astro-cid-xlvzfuxv].active{color:var(--accent-cyan);border-bottom-color:var(--accent-cyan);background:var(--bg-primary)}.tabs-content[data-astro-cid-xlvzfuxv]{padding:2rem}.tab-panel[data-astro-cid-r7gez2uh]{animation:fadeIn .3s ease}@keyframes fadeIn{0%{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.tab-panel h3{margin-top:2.5rem}.tab-panel pre{margin-bottom:1rem}
+</style></head> <body> <header> <div class="container nav-container"> <div class="logo" style="display:flex; align-items:center;"> <a href="/"> <img src="/logo.gif" alt="ASN Lab" height="40" style="margin-top:5px;"> </a> </div> <nav class="nav-links"> <a href="/">Home</a> <a href="/products">Products</a> <a href="/getting-started">Getting Started</a> <a href="/downloads">Downloads</a> <a href="/purchase" class="btn" style="padding: 0.5rem 1rem;">Purchase</a> <a href="/free-trial" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Free Trial</a> <!-- Language Switcher --> <select class="lang-switcher" id="lang-switcher" style="margin-left: 1rem;"> <option value="/getting-started/" selected>English</option> <option value="/zh-cn/getting-started/">中文</option> </select> </nav> </div> </header> <main>  <section class="container" style="padding: 4rem 2rem; min-height: 80vh;" data-astro-cid-mwd2jfe2> <div class="glass-panel" style="max-width: 1200px; margin: 0 auto;" data-astro-cid-mwd2jfe2> <h1 style="color: var(--accent-cyan); margin-bottom: 2rem;" data-astro-cid-mwd2jfe2>Getting Started with ASN.1 SDK</h1> <div style="line-height: 1.8; font-size: 1.1rem; display: flex; flex-direction: column; gap: 1.5rem;" data-astro-cid-mwd2jfe2> <p data-astro-cid-mwd2jfe2>
+The ASN.1 SDK provides a unified command-line workflow for compiling ASN.1 specifications into source code for C, C++, Java, C#, and Go. This guide walks through installation, licensing, project setup, compilation, and integrating generated code into your build.
+</p> <h2 data-astro-cid-mwd2jfe2>1. Installation</h2> <p data-astro-cid-mwd2jfe2>
+The SDK requires Java 21 or later. Download the SDK archive from the <a href="/downloads" style="color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>Downloads</a> page and unpack it:
+</p> <pre data-astro-cid-mwd2jfe2><code>unzip asn1-sdk-3.14.15.zip
+cd asn1-sdk-3.14.15</code></pre> <p data-astro-cid-mwd2jfe2>The distribution contains the <code data-astro-cid-mwd2jfe2>asndt</code> CLI, core library, and compiler plugins:</p> <pre data-astro-cid-mwd2jfe2><code>bin/
+  asndt.sh    # Linux/macOS
+  asndt.bat   # Windows
+lib/
+  core/       # SDK core JAR
+  plugins/    # Compiler plugin JARs</code></pre> <p data-astro-cid-mwd2jfe2>Add the <code data-astro-cid-mwd2jfe2>bin/</code> directory to your <code data-astro-cid-mwd2jfe2>PATH</code> so you can invoke <code data-astro-cid-mwd2jfe2>asndt</code> from any directory:</p> <pre data-astro-cid-mwd2jfe2><code>export PATH=/path/to/asn1-sdk-3.14.15/bin:$PATH   # Linux/macOS
+:: Windows: add bin\ directory to your system PATH</code></pre> <h2 data-astro-cid-mwd2jfe2>2. Activate a License</h2> <p data-astro-cid-mwd2jfe2>
+Request an evaluation license from the <a href="/free-trial" style="color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>Free Trial</a> page, or purchase a permanent license. Once you have a license key, activate it interactively:
+</p> <pre data-astro-cid-mwd2jfe2><code>asndt license</code></pre> <p data-astro-cid-mwd2jfe2>Choose <strong data-astro-cid-mwd2jfe2>Activate license</strong>, select your compiler target, and paste the key. Licenses are stored in your user profile and apply to all projects.</p> <h2 data-astro-cid-mwd2jfe2>3. Create a Project</h2> <p data-astro-cid-mwd2jfe2>
+Create a new ASN.1 project skeleton:
+</p> <pre data-astro-cid-mwd2jfe2><code>asndt create MyProject</code></pre> <p data-astro-cid-mwd2jfe2>This creates:</p> <pre data-astro-cid-mwd2jfe2><code>MyProject/
+  asn1.avn    # Project configuration
+  src/        # Place ASN.1 source files here
+  build/      # Generated output</code></pre> <h2 data-astro-cid-mwd2jfe2>4. The MyHTTP Example</h2> <p data-astro-cid-mwd2jfe2>
+Save the following ASN.1 module as <code data-astro-cid-mwd2jfe2>MyProject/src/MyHTTP.asn</code>. This example is adapted from <a href="https://www.w3.org/Protocols/HTTP-NG/asn1.html" style="color: var(--accent-cyan);" target="_blank" data-astro-cid-mwd2jfe2>W3C HTTP-NG</a>:
+</p> <pre style="font-size: 0.9rem;" data-astro-cid-mwd2jfe2><code>MyHTTP DEFINITIONS
+AUTOMATIC TAGS ::=
+BEGIN
+   GetRequest ::= SEQUENCE {
+      header-only   BOOLEAN,
+      lock          BOOLEAN,
+      accept-types  AcceptTypes,
+      url           Url,
+      ...,
+      timestamp     GeneralizedTime
+   }
+   AcceptTypes ::= SET {
+      standards   BIT STRING { html(0), plain-text(1), gif(2), jpeg(3) } (SIZE(4)) OPTIONAL,
+      others      SEQUENCE OF VisibleString (SIZE(4)) OPTIONAL
+   }
+   Url ::= VisibleString (FROM("a".."z"|"A".."Z"|"0".."9"|"./-_~%#"))
+   myRequest GetRequest ::= {
+      header-only  TRUE,
+      lock         FALSE,
+      accept-types {
+         standards { html, plain-text }
+      },
+      url          "www.asnlab.org",
+      timestamp    "20121221121221Z"
+   }
+END
+</code></pre> <h2 data-astro-cid-mwd2jfe2>5. Configure and Compile</h2> <p data-astro-cid-mwd2jfe2>
+Edit <code data-astro-cid-mwd2jfe2>MyProject/asn1.avn</code> to enable your compiler targets. The <code data-astro-cid-mwd2jfe2>compile</code> command is the same for all languages:
+</p> <pre data-astro-cid-mwd2jfe2><code>asndt compile MyProject</code></pre> <p data-astro-cid-mwd2jfe2>
+Select a language tab below for the full configuration syntax, available options, and how to integrate the generated code into your project.
+</p> <div class="tabs-container " data-astro-cid-xlvzfuxv> <div class="tabs-header" role="tablist" data-astro-cid-xlvzfuxv> <button type="button" role="tab" aria-selected="true" aria-controls="panel-c" id="tab-c" class="tab-button active" data-tab="c" data-astro-cid-xlvzfuxv> C </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-cpp" id="tab-cpp" class="tab-button " data-tab="cpp" data-astro-cid-xlvzfuxv> C++ </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-java" id="tab-java" class="tab-button " data-tab="java" data-astro-cid-xlvzfuxv> Java </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-csharp" id="tab-csharp" class="tab-button " data-tab="csharp" data-astro-cid-xlvzfuxv> C# </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-go" id="tab-go" class="tab-button " data-tab="go" data-astro-cid-xlvzfuxv> Go </button> </div> <div class="tabs-content" data-astro-cid-xlvzfuxv>  <div id="panel-c" role="tabpanel" aria-labelledby="tab-c" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3 data-astro-cid-mwd2jfe2>C Configuration</h3> <p data-astro-cid-mwd2jfe2>Add the C compiler block to <code data-astro-cid-mwd2jfe2>asn1.avn</code>:</p> <pre data-astro-cid-mwd2jfe2><code>compilers {
+    {
+        id "asncc",
+        language "c",
+        options {
+            output-folder "c",
+            mapping {
+                integer automatic,
+                size-of-int 4,
+                size-of-long 8,
+                size-of-xlong 8,
+                real automatic
+            },
+            using-module-name-as-type-prefix false,
+            custom-type-prefix "",
+            dont-generate-names false,
+            generate {
+                constraints false,
+                sample-test false,
+                frees false,
+                equals false,
+                prints false
+            }
+        }
+    }
+}</code></pre> <h3 data-astro-cid-mwd2jfe2>Integration with Make</h3> <p data-astro-cid-mwd2jfe2>Generated C output goes to <code data-astro-cid-mwd2jfe2>MyProject/build/c/</code>. A typical <code data-astro-cid-mwd2jfe2>Makefile</code> looks like:</p> <pre data-astro-cid-mwd2jfe2><code>ASNRT = /path/to/c/asnrt
+CFLAGS = -I$(ASNRT)/include -Ibuild/c
+LDFLAGS = -L$(ASNRT) -lasnrt
+
+SRCS = $(wildcard build/c/*.c) main.c
+OBJS = $(SRCS:.c=.o)
+
+test: $(OBJS)
+\t$(CC) -o $@ $^ $(LDFLAGS)
+
+clean:
+\trm -f $(OBJS) test</code></pre> <p data-astro-cid-mwd2jfe2>Generated types provide <code data-astro-cid-mwd2jfe2>encode_TypeName</code> and <code data-astro-cid-mwd2jfe2>decode_TypeName</code> functions accepting an encoding rule constant (<code data-astro-cid-mwd2jfe2>BASIC_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>CANONICAL_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>UNALIGNED_PACKED_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>ALIGNED_PACKED_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>OCTET_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>XML_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>JER</code>).</p> <h3 data-astro-cid-mwd2jfe2>Code Example</h3> <pre data-astro-cid-mwd2jfe2><code>#include "stdio.h"
+#include "GetRequest.h"
+#include "AcceptTypes_standards.h"
+
+int main(void) {
+    struct GetRequest req = {0};
+    AsnBuffer* buffer = NULL;
+    Bits* standards = NULL;
+    int rc = 0;
+
+    req.header_only = true;
+    req.lock = false;
+    req.url = "www.asnlab.org";
+    req.timestamp.year = 2012;
+    req.timestamp.month = 12;
+    req.timestamp.day = 21;
+    req.timestamp.hour = 12;
+    req.timestamp.minute = 12;
+    req.timestamp.second = 21;
+    req.timestamp.hour_offset = 0;
+    req.timestamp.minute_offset = 0;
+    req.timestamp.millisec = 0;
+
+    standards = ASN_ALLOC(1, Bits);
+    standards->length = 4;
+    standards->bytes = ASN_ALLOC(1, char);
+    standards->bytes[0] = 0;
+    setBit(standards, acceptTypes_standards_html);
+    setBit(standards, acceptTypes_standards_plain_text);
+    req.accept_types.standards = standards;
+
+    char rules[] = { BASIC_ENCODING_RULES, UNALIGNED_PACKED_ENCODING_RULES };
+    for (unsigned int rule_index = 0; rule_index < sizeof(rules); ++rule_index) {
+        char encoding_rules = rules[rule_index];
+        buffer = alloc_buffer(1024, true, encoding_rules);
+        rc = encode_object(buffer, &req, &GETREQUEST_TYPE);
+        if (rc == 0) {
+            for (unsigned long i = 0; i < buffer->limit; i++)
+                printf("%02X ", (unsigned char) buffer->array[i]);
+            putchar('\n');
+        }
+        free_buffer(buffer);
+    }
+
+    asn_free(standards->bytes);
+    asn_free(standards);
+    return 0;
+}</code></pre>  </div>  <div id="panel-cpp" role="tabpanel" aria-labelledby="tab-cpp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3 data-astro-cid-mwd2jfe2>C++ Configuration</h3> <p data-astro-cid-mwd2jfe2>Add the C++ compiler block to <code data-astro-cid-mwd2jfe2>asn1.avn</code>:</p> <pre data-astro-cid-mwd2jfe2><code>compilers {
+    {
+        id "asncpp",
+        language "c++",
+        options {
+            output-folder "c++",
+            mapping {
+                integer automatic,
+                real automatic,
+                choice union,
+                size-of-int 2,
+                size-of-long 4,
+                size-of-xlong 8
+            },
+            cpp-standard cpp17,
+            nullable-member shared-pointer,
+            using-module-name-as-namespace true,
+            namespace "",
+            precompiled-header "",
+            generate {
+                compressed-codes false,
+                constraints false,
+                sample-test false,
+                copy-constructor false,
+                clone false,
+                frees true,
+                equals false,
+                prints false
+            }
+        }
+    }
+}</code></pre> <h3 data-astro-cid-mwd2jfe2>Integration with Make</h3> <p data-astro-cid-mwd2jfe2>Generated C++ output goes to <code data-astro-cid-mwd2jfe2>MyProject/build/c++/</code>. A typical <code data-astro-cid-mwd2jfe2>Makefile</code> looks like:</p> <pre data-astro-cid-mwd2jfe2><code>CXX = g++
+ASNRT = /path/to/cpp/asnrt
+CXXFLAGS = -std=c++17 -I$(ASNRT)/include -Ibuild/c++
+LDFLAGS = -L$(ASNRT) -lasnrt
+
+SRCS = $(wildcard build/c++/*.cpp) main.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+test: $(OBJS)
+\t$(CXX) -o $@ $^ $(LDFLAGS)
+
+clean:
+\trm -f $(OBJS) test</code></pre> <p data-astro-cid-mwd2jfe2>Generated types provide <code data-astro-cid-mwd2jfe2>encode</code> and <code data-astro-cid-mwd2jfe2>decode</code> methods accepting an encoding rule constant. Use <code data-astro-cid-mwd2jfe2>encode_object</code> / <code data-astro-cid-mwd2jfe2>decode_object</code> free functions for non-member encoding.</p> <h3 data-astro-cid-mwd2jfe2>Code Example</h3> <pre data-astro-cid-mwd2jfe2><code>#include "GetRequest.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+using namespace asnrt;
+using namespace myhttp;
+
+int main(void) {
+    AsnBuffer* buffer = alloc_buffer(1024, true, BASIC_ENCODING_RULES);
+    GetRequest* getRequest = new GetRequest();
+    getRequest->header_only = true;
+    getRequest->lock = false;
+    getRequest->accept_types.standards = new bitstring();
+    getRequest->accept_types.standards->push_back(true);
+    getRequest->accept_types.standards->push_back(true);
+    getRequest->accept_types.standards->push_back(false);
+    getRequest->accept_types.standards->push_back(false);
+    getRequest->accept_types.others = NULL;
+    getRequest->url = "www.asnlab.org";
+    getRequest->timestamp.fromUTCTime(2012, 12, 21, 12, 12, 21, 0);
+
+    encode_object(buffer, getRequest, GetRequest::TYPE, &GetRequest::CONVERTER);
+    octetstring octets;
+    buffer_content(buffer, &octets);
+    for (unsigned long i = 0; i < octets.length(); i++) {
+        cout << setfill('0') << setw(2) << hex << uppercase
+             << (0xFF & octets.at(i)) << " ";
+    }
+    cout << endl;
+
+    delete getRequest;
+    free_buffer(buffer);
+    return 0;
+}</code></pre>  </div>  <div id="panel-java" role="tabpanel" aria-labelledby="tab-java" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3 data-astro-cid-mwd2jfe2>Java Configuration</h3> <p data-astro-cid-mwd2jfe2>Add the Java compiler block to <code data-astro-cid-mwd2jfe2>asn1.avn</code>:</p> <pre data-astro-cid-mwd2jfe2><code>compilers {
+    {
+        id "asnjc",
+        language "java",
+        options {
+            output-folder "java",
+            mapping {
+                integer automatic,
+                enumerated automatic,
+                real double,
+                list automatic
+            },
+            lower-case-package true,
+            package-prefix "com.example",
+            generate {
+                sample-test false,
+                setters-getters false,
+                clones false,
+                equals true,
+                prints false
+            }
+        }
+    }
+}</code></pre> <h3 data-astro-cid-mwd2jfe2>Integration with Maven/Gradle</h3> <p data-astro-cid-mwd2jfe2>Generated Java output goes to <code data-astro-cid-mwd2jfe2>MyProject/build/java/</code> with packages derived from module names. Add the <code data-astro-cid-mwd2jfe2>asnrt</code> JAR to your classpath.</p> <p data-astro-cid-mwd2jfe2>Generated types provide <code data-astro-cid-mwd2jfe2>TYPE</code> and <code data-astro-cid-mwd2jfe2>CONV</code> static fields. Call <code data-astro-cid-mwd2jfe2>TYPE.encode()</code> and <code data-astro-cid-mwd2jfe2>TYPE.decode()</code> with a <code data-astro-cid-mwd2jfe2>Buffer</code> and converter. Supported encoding rules: <code data-astro-cid-mwd2jfe2>BASIC_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>CANONICAL_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>UNALIGNED_PACKED_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>ALIGNED_PACKED_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>OCTET_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>XML_ENCODING_RULES</code>, <code data-astro-cid-mwd2jfe2>JSON_ENCODING_RULES</code>.</p> <h3 data-astro-cid-mwd2jfe2>Code Example</h3> <pre data-astro-cid-mwd2jfe2><code>import java.util.Calendar;
+import java.util.TimeZone;
+
+import org.asnlab.asndt.runtime.conv.EncodingRules;
+import org.asnlab.asndt.runtime.type.Buffer;
+
+import myhttp.AcceptTypes;
+import myhttp.AcceptTypes_standards;
+import myhttp.GetRequest;
+
+public class TestMyHttp {
+    public static void main(String[] args) throws Exception {
+        GetRequest getRequest = new GetRequest();
+        getRequest.header_only = true;
+        getRequest.lock = false;
+        getRequest.accept_types = new AcceptTypes();
+        getRequest.accept_types.standards = new AcceptTypes_standards(new byte[1], (byte) 4);
+        getRequest.accept_types.standards.setHtml();
+        getRequest.accept_types.standards.setPlain_text();
+        getRequest.url = "www.asnlab.org";
+
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        cal.set(2012, Calendar.DECEMBER, 21, 12, 12, 21);
+        cal.set(Calendar.MILLISECOND, 0);
+        getRequest.timestamp = cal.getTime();
+
+        for (byte encodingRules : new byte[] {
+                EncodingRules.BASIC_ENCODING_RULES,
+                EncodingRules.UNALIGNED_PACKED_ENCODING_RULES }) {
+            Buffer buffer = Buffer.allocate(1024, encodingRules);
+            GetRequest.TYPE.encode(getRequest, buffer, GetRequest.CONV);
+            byte[] bs = buffer.array();
+            for (byte b : bs) {
+                System.out.printf("%02X ", b & 0xFF);
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>  </div>  <div id="panel-csharp" role="tabpanel" aria-labelledby="tab-csharp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3 data-astro-cid-mwd2jfe2>C# Configuration</h3> <p data-astro-cid-mwd2jfe2>Add the C# compiler block to <code data-astro-cid-mwd2jfe2>asn1.avn</code>:</p> <pre data-astro-cid-mwd2jfe2><code>compilers {
+    {
+        id "asncsc",
+        language "c#",
+        options {
+            output-folder "c#",
+            mapping {
+                integer automatic,
+                real double
+            },
+            lower-case-namespace true,
+            namespace-prefix "MyCompany.Protocols",
+            generate {
+                constraints false,
+                sample-test false,
+                properties false,
+                clones false,
+                equals true,
+                prints false,
+                hash-code true
+            }
+        }
+    }
+}</code></pre> <h3 data-astro-cid-mwd2jfe2>Integration with .NET</h3> <p data-astro-cid-mwd2jfe2>Generated C# output goes to <code data-astro-cid-mwd2jfe2>MyProject/build/c#/</code>. Add the ASN.1 C# runtime library to your .NET project references. Generated types provide <code data-astro-cid-mwd2jfe2>TYPE</code> and <code data-astro-cid-mwd2jfe2>CONV</code> static fields. Call <code data-astro-cid-mwd2jfe2>TYPE.Encode()</code> and <code data-astro-cid-mwd2jfe2>TYPE.Decode()</code> with an <code data-astro-cid-mwd2jfe2>AsnBuffer</code> and converter.</p> <h3 data-astro-cid-mwd2jfe2>Code Example</h3> <pre data-astro-cid-mwd2jfe2><code>using System;
+using System.Collections;
+using System.IO;
+using myhttp;
+using org.asnlab.asndt.asnrt.conv;
+using org.asnlab.asndt.asnrt.type;
+
+class TestMyHttp {
+    static void Main() {
+        Directory.SetCurrentDirectory(AppContext.BaseDirectory);
+
+        GetRequest getRequest = new GetRequest();
+        getRequest.header_only = true;
+        getRequest.lock_ = false;
+        getRequest.accept_types = new AcceptTypes();
+
+        BitArray standards = new BitArray(4);
+        standards[AcceptTypes_standards.html] = true;
+        standards[AcceptTypes_standards.plain_text] = true;
+        getRequest.accept_types.standards = standards;
+
+        getRequest.url = "www.asnlab.org";
+        getRequest.timestamp = new DateTime(2012, 12, 21, 12, 12, 21, DateTimeKind.Utc);
+
+        foreach (byte encodingRules in new byte[] {
+                EncodingRules.BASIC_ENCODING_RULES,
+                EncodingRules.UNALIGNED_PACKED_ENCODING_RULES }) {
+            AsnBuffer buffer = AsnBuffer.Allocate(1024, encodingRules);
+            GetRequest.TYPE.Encode(getRequest, buffer, GetRequest.CONV);
+
+            foreach (byte b in buffer.Array()) {
+                Console.Write("{0:X2} ", b);
+            }
+            Console.WriteLine();
+        }
+    }
+}</code></pre>  </div>  <div id="panel-go" role="tabpanel" aria-labelledby="tab-go" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <h3 data-astro-cid-mwd2jfe2>Go Configuration</h3> <p data-astro-cid-mwd2jfe2>Add the Go compiler block to <code data-astro-cid-mwd2jfe2>asn1.avn</code>:</p> <pre data-astro-cid-mwd2jfe2><code>compilers {
+    {
+        id "asngc",
+        language "go",
+        options {
+            output-folder "go",
+            mapping {
+                integer automatic-int64,
+                real automatic
+            },
+            generate {
+                constraints false,
+                sample-test false,
+                clones false,
+                equals true,
+                prints false
+            }
+        }
+    }
+}</code></pre> <h3 data-astro-cid-mwd2jfe2>Integration with Go Modules</h3> <p data-astro-cid-mwd2jfe2>Generated Go output goes to <code data-astro-cid-mwd2jfe2>MyProject/build/go/</code>. Import the generated Go package and the Go runtime library in your module. Obtain the module runtime via <code data-astro-cid-mwd2jfe2>GetRuntime()</code>, then use <code data-astro-cid-mwd2jfe2>runtime.Encode()</code> and <code data-astro-cid-mwd2jfe2>runtime.Decode()</code> with a buffer.</p> <h3 data-astro-cid-mwd2jfe2>Code Example</h3> <pre data-astro-cid-mwd2jfe2><code>package main
+
+import (
+    "fmt"
+    "time"
+    "myhttp-test/myhttp"
+    "github.com/asnlab/asnrt"
+)
+
+func main() {
+    req := &myhttp.GetRequest{
+        Header_only: true,
+        Lock:        false,
+        Accept_types: myhttp.AcceptTypes{
+            Standards: myhttp.NewAcceptTypes_standards(4),
+        },
+        Url:       "www.asnlab.org",
+        Timestamp: time.Date(2012, 12, 21, 12, 12, 21, 0, time.UTC),
+    }
+    req.Accept_types.Standards.SetHtml(true)
+    req.Accept_types.Standards.SetPlain_text(true)
+
+    runtime := myhttp.GetRuntime()
+    for _, encodingRules := range []byte{
+        asnrt.BASIC_ENCODING_RULES,
+        asnrt.UNALIGNED_PACKED_ENCODING_RULES,
+    } {
+        buffer, err := runtime.Allocate(1024, encodingRules)
+        if err != nil {
+            panic(err)
+        }
+        if err := runtime.Encode(buffer, req, myhttp.GETREQUEST_TYPE); err != nil {
+            panic(err)
+        }
+        for _, b := range buffer.Array() {
+            fmt.Printf("%02X ", b)
+        }
+        fmt.Println()
+    }
+}</code></pre>  </div>   </div> </div>  <script type="module">function l(){document.querySelectorAll(".tabs-container").forEach(a=>{const c=a.querySelectorAll(".tab-button"),r=a.querySelectorAll(".tab-panel");c.forEach(t=>{t.addEventListener("click",()=>{c.forEach(e=>{e.classList.remove("active"),e.setAttribute("aria-selected","false")}),r.forEach(e=>{e.classList.remove("active"),e.style.display="none"}),t.classList.add("active"),t.setAttribute("aria-selected","true");const o=t.dataset.tab,s=a.querySelector(`#panel-${o}`);s&&(s.classList.add("active"),s.style.display="block")})})})}l();document.addEventListener("astro:page-load",l);</script> <h2 data-astro-cid-mwd2jfe2>6. Understanding the Output</h2> <p data-astro-cid-mwd2jfe2>
+All language targets produce the same BER-encoded bytes for the MyHTTP example. Run the program and you should see:
+</p> <pre data-astro-cid-mwd2jfe2><code>30 2D 80 01 FF 81 01 00 A2 04 80 02 04 C0 83 0E 77 77 77 2E 61 73 6E 6C 61 62 2E 6F 72 67 84 0F 32 30 31 32 31 32 32 31 31 32 31 32 32 31 5A</code></pre> <p data-astro-cid-mwd2jfe2>
+Here is a breakdown of each byte:
+</p> <div style="overflow-x: auto;" data-astro-cid-mwd2jfe2> <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: 1.5rem;" data-astro-cid-mwd2jfe2> <thead data-astro-cid-mwd2jfe2> <tr style="border-bottom: 1px solid var(--glass-border); text-align: left;" data-astro-cid-mwd2jfe2> <th style="padding: 0.5rem 0.75rem; color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>Bytes</th> <th style="padding: 0.5rem 0.75rem; color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>Field</th> <th style="padding: 0.5rem 0.75rem; color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>Explanation</th> </tr> </thead> <tbody data-astro-cid-mwd2jfe2> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>30 2D</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>GetRequest (SEQUENCE)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x30 = UNIVERSAL CONSTRUCTED 16 (SEQUENCE), length 45</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>80 01 FF</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>header_only (BOOLEAN)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x80 = CONTEXT PRIMITIVE 0, length 1, value TRUE (0xFF)</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>81 01 00</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>lock (BOOLEAN)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x81 = CONTEXT PRIMITIVE 1, length 1, value FALSE (0x00)</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>A2 04</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>accept_types (SET)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0xA2 = CONTEXT CONSTRUCTED 2, length 4</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>80 02 04 C0</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>standards (BIT STRING)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x80 = CONTEXT PRIMITIVE 0, length 2, 4 unused bits (0x04), bits &#123;html, plain_text&#125; (0xC0 = 1100 0000)</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>83 0E 77 77...</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>url (VisibleString)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x83 = CONTEXT PRIMITIVE 3, length 14, ASCII "www.asnlab.org"</td> </tr> <tr style="border-bottom: 1px solid var(--glass-border);" data-astro-cid-mwd2jfe2> <td style="padding: 0.5rem 0.75rem; font-family: var(--font-mono);" data-astro-cid-mwd2jfe2>84 0F 32 30...</td> <td style="padding: 0.5rem 0.75rem;" data-astro-cid-mwd2jfe2>timestamp (GeneralizedTime)</td> <td style="padding: 0.5rem 0.75rem; color: var(--text-secondary);" data-astro-cid-mwd2jfe2>0x84 = CONTEXT PRIMITIVE 4, length 15, ASCII "20121221121221Z"</td> </tr> </tbody> </table> </div> <p data-astro-cid-mwd2jfe2>
+Because we used <code data-astro-cid-mwd2jfe2>AUTOMATIC TAGS</code>, each component is tagged with a context-specific tag matching its position in the SEQUENCE (0, 1, 2, 3, 4). The constructed SET (0xA2) wraps the optional <code data-astro-cid-mwd2jfe2>accept_types</code> component, and the BIT STRING within it uses a nested context tag 0.
+</p> <h2 data-astro-cid-mwd2jfe2>7. Decoding (Roundtrip)</h2> <p data-astro-cid-mwd2jfe2>
+Encoding is only half the story. To verify your data survives a roundtrip, decode the bytes back into a message and compare the fields. All language targets support this pattern:
+</p> <div class="tabs-container " data-astro-cid-xlvzfuxv> <div class="tabs-header" role="tablist" data-astro-cid-xlvzfuxv> <button type="button" role="tab" aria-selected="true" aria-controls="panel-c" id="tab-c" class="tab-button active" data-tab="c" data-astro-cid-xlvzfuxv> C </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-cpp" id="tab-cpp" class="tab-button " data-tab="cpp" data-astro-cid-xlvzfuxv> C++ </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-java" id="tab-java" class="tab-button " data-tab="java" data-astro-cid-xlvzfuxv> Java </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-csharp" id="tab-csharp" class="tab-button " data-tab="csharp" data-astro-cid-xlvzfuxv> C# </button><button type="button" role="tab" aria-selected="false" aria-controls="panel-go" id="tab-go" class="tab-button " data-tab="go" data-astro-cid-xlvzfuxv> Go </button> </div> <div class="tabs-content" data-astro-cid-xlvzfuxv>  <div id="panel-c" role="tabpanel" aria-labelledby="tab-c" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <pre data-astro-cid-mwd2jfe2><code>struct GetRequest decoded = {0};
+int rc = decode_object(Buffer_wrap(buffer->array, buffer->limit, encoding_rules),
+                       &decoded, &GETREQUEST_TYPE);
+assert(rc == 0);
+assert(decoded.header_only == req.header_only);
+assert(strcmp(decoded.url, req.url) == 0);
+free_buffer(buffer);</code></pre>  </div>  <div id="panel-cpp" role="tabpanel" aria-labelledby="tab-cpp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <pre data-astro-cid-mwd2jfe2><code>GetRequest* decoded = static_cast&lt;GetRequest*&gt;(
+    decode_object(Buffer_wrap(buffer->array, buffer->limit, encoding_rules),
+                  GetRequest::TYPE, &GetRequest::CONVERTER));
+assert(decoded->header_only == getRequest->header_only);
+assert(decoded->url == getRequest->url);
+delete decoded;
+free_buffer(buffer);</code></pre>  </div>  <div id="panel-java" role="tabpanel" aria-labelledby="tab-java" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <pre data-astro-cid-mwd2jfe2><code>GetRequest decoded = (GetRequest) GetRequest.TYPE.decode(
+    Buffer.wrap(bs, encodingRules), GetRequest.CONV);
+assert decoded.header_only == getRequest.header_only;
+assert decoded.url.equals(getRequest.url);</code></pre>  </div>  <div id="panel-csharp" role="tabpanel" aria-labelledby="tab-csharp" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <pre data-astro-cid-mwd2jfe2><code>GetRequest decoded = (GetRequest) GetRequest.TYPE.Decode(
+    AsnBuffer.Wrap(buffer.Array(), encodingRules), GetRequest.CONV);
+Debug.Assert(decoded.header_only == getRequest.header_only);
+Debug.Assert(decoded.url.Equals(getRequest.url));</code></pre>  </div>  <div id="panel-go" role="tabpanel" aria-labelledby="tab-go" class="tab-panel " style="display:none" data-astro-cid-r7gez2uh>  <pre data-astro-cid-mwd2jfe2><code>decoded, err := runtime.Decode(
+    myhttp.AsnBufferWrap(buffer.Array(), encodingRules),
+    myhttp.GETREQUEST_TYPE)
+if err != nil {
+    panic(err)
+}
+req2 := decoded.(*myhttp.GetRequest)
+fmt.Println(req2.Header_only == req.Header_only) // true</code></pre>  </div>   </div> </div>   <h2 data-astro-cid-mwd2jfe2>Next Steps</h2> <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1rem;" data-astro-cid-mwd2jfe2> <a href="/products" style="text-decoration: none;" data-astro-cid-mwd2jfe2> <div class="glass-panel" style="text-align: center; padding: 1.5rem;" data-astro-cid-mwd2jfe2> <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-astro-cid-mwd2jfe2>Explore Compilers</h3> <p style="font-size: 0.95rem; margin-bottom: 0;" data-astro-cid-mwd2jfe2>See all supported languages and their features.</p> </div> </a> <a href="/downloads" style="text-decoration: none;" data-astro-cid-mwd2jfe2> <div class="glass-panel" style="text-align: center; padding: 1.5rem;" data-astro-cid-mwd2jfe2> <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-astro-cid-mwd2jfe2>Download Runtime</h3> <p style="font-size: 0.95rem; margin-bottom: 0;" data-astro-cid-mwd2jfe2>Get the runtime library for your target language.</p> </div> </a> <a href="/free-trial" style="text-decoration: none;" data-astro-cid-mwd2jfe2> <div class="glass-panel" style="text-align: center; padding: 1.5rem;" data-astro-cid-mwd2jfe2> <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;" data-astro-cid-mwd2jfe2>Start Free Trial</h3> <p style="font-size: 0.95rem; margin-bottom: 0;" data-astro-cid-mwd2jfe2>Request an evaluation license and try it yourself.</p> </div> </a> </div> <p data-astro-cid-mwd2jfe2>If you encounter any issues, contact our support team at <a href="mailto:sales@asnlab.org" style="color: var(--accent-cyan);" data-astro-cid-mwd2jfe2>sales@asnlab.org</a>.</p> </div> </div> </section>  </main>  <footer style="margin-top: 4rem; padding: 3rem 0; border-top: 1px solid var(--glass-border); text-align: center; color: var(--text-secondary); background: var(--glass-bg);"> <div class="container"> <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem;"> <a href="/products" style="font-size: 0.9rem; color: var(--text-secondary);">Products</a> <a href="/downloads" style="font-size: 0.9rem; color: var(--text-secondary);">Downloads</a> <a href="/getting-started" style="font-size: 0.9rem; color: var(--text-secondary);">Documentation</a> <a href="/migrate-license" style="font-size: 0.9rem; color: var(--text-secondary);">License Migration</a> <a href="/free-trial" style="font-size: 0.9rem; color: var(--text-secondary);">Free Trial</a> <a href="/purchase" style="font-size: 0.9rem; color: var(--text-secondary);">Purchase</a> </div> <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem;"> <a href="/terms" style="font-size: 0.85rem; color: var(--text-secondary);">Terms</a> <a href="/privacy" style="font-size: 0.85rem; color: var(--text-secondary);">Privacy</a> <a href="/legacy/index.html" style="font-size: 0.85rem; color: var(--text-secondary);">Legacy Site</a> </div> <p style="font-size: 0.85rem; color: var(--text-secondary);">&copy; 2026 ASN Lab. All rights reserved.</p> </div> </footer> <script type="module">document.getElementById("lang-switcher")?.addEventListener("change",e=>{window.location.href=e.target.value});</script> </body> </html> 

@@ -1,0 +1,248 @@
+dl.apireference {
+  padding-bottom: .5em;
+}
+
+dl.apireference dt {
+  font-weight: normal;
+  font-style: none;
+}
+
+dl.apireference .type {
+  font-weight: bold;
+}
+
+dl.apireference .itemname {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: larger;
+}
+
+dl.apireference .argname {
+  font-style: italic;
+}
+
+dl.apireference .argdefault {
+  font-family: monospace;
+}
+
+/* table containing sample's <pre> tag */
+.codesnippet {
+  border: none;
+  margin: 0px;
+  width: 100%;
+}
+
+.codesnippet td {
+  border: 0px;
+  background: none;
+  padding: 0px;
+}
+
+/* pre element with line numbers */
+.line-no {
+  text-align: center;
+}
+
+/*
+ * Styles for inline code samples
+ */
+
+/* Container for entire sample section */
+div.tabpane {
+  margin: 10px 0 0 0;
+  width: 100%;
+}
+/* For 'pre' elements in samples section */
+div.tabpane pre {
+  background-color: #FAFAFA;
+  border: none;
+  margin: 0px;
+  padding: 2px;
+}
+/* Container for tab content section */
+.content-container {
+  border: 1px solid #CCCCCC;
+  padding: 15px;
+  padding-bottom: 0px;
+  background-color: #FAFAFA;
+}
+/* Container for tab header section */
+ul.ui-tabs-nav {
+  background: #FFFFFF none repeat scroll 0%;
+  list-style: none;
+  margin: 0 0 4px 0;
+  padding: 0px;
+}
+/* Sample tab headers */
+ul.ui-tabs-nav li {
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  background-color: #E5ECF9;
+  display: inline;
+  margin: 0;
+  padding: 5px;
+}
+/* Selected tab header */
+ul.ui-tabs-nav li.ui-tabs-selected {
+  background-color: #FAFAFA;
+  border-bottom: solid 1px #FAFAFA;
+  font-weight: bold;
+}
+/* Links of tab headers */
+ul.ui-tabs-nav a {
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* Spans of tab headers */
+ul.ui-tabs-nav a, ul.ui-tabs-nav a span {
+  color: black;
+  display: inline;
+}
+/* To hide content */
+.ui-tabs-hide {
+  display: none;
+}
+
+
+fieldset {
+  margin: 1em 0 1em 0;
+  border: solid #DADCE0 1px;
+  padding: 0.5em;
+}
+
+.form-item  {
+	margin-top: 0.5em;
+}
+
+.form-item INPUT.error {
+	BORDER-BOTTOM: red 2px solid; BORDER-LEFT: red 2px solid; BORDER-TOP: red 2px solid; BORDER-RIGHT: red 2px solid
+}
+.form-item TEXTAREA.error {
+	BORDER-BOTTOM: red 2px solid; BORDER-LEFT: red 2px solid; BORDER-TOP: red 2px solid; BORDER-RIGHT: red 2px solid
+}
+.form-item SELECT.error {
+	BORDER-BOTTOM: red 2px solid; BORDER-LEFT: red 2px solid; BORDER-TOP: red 2px solid; BORDER-RIGHT: red 2px solid
+}
+.form-item .description {
+	FONT-SIZE: 0.85em
+}
+.form-item LABEL {
+	DISPLAY: block; FONT-WEIGHT: bold
+}
+.form-item LABEL.option {
+	DISPLAY: inline; FONT-WEIGHT: normal
+}
+.form-checkboxes {
+	MARGIN: 1em 0px
+}
+.form-radios {
+	MARGIN: 1em 0px
+}
+.form-checkboxes .form-item {
+	MARGIN-TOP: 0.4em; MARGIN-BOTTOM: 0.4em
+}
+.form-radios .form-item {
+	MARGIN-TOP: 0.4em; MARGIN-BOTTOM: 0.4em
+}
+.marker {
+	COLOR: #f00
+}
+.form-required {
+	COLOR: #f00
+}
+
+.messages {
+  min-height: 16px;                 /* icon height */
+  padding: 1em 1em 1em 30px;
+  border: 2px solid #DADCE0;
+  background: #fbfcfe;
+  margin: 10px 0;
+}
+
+.source {
+	width: 96%;
+}
+
+.script-only {
+	display: block;
+}
+
+#openid_btns, #openid_btns br {
+	overflow: auto;
+	margin-left: 30px;
+}
+
+.openid_large_btn:hover {
+	margin: 4px 0px 0px 6px;
+	border: 2px solid #999;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.openid_large_btn {
+	width: 100px;
+	height: 60px;
+	border: 2px solid #DDD;
+	border-right: 2px solid #CCC;
+	border-bottom: 2px solid #CCC;
+	margin: 3px;
+	float: left;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 2px 2px 4px #ddd;
+	-moz-box-shadow: 2px 2px 4px #ddd;
+	-webkit-box-shadow: 2px 2px 4px #ddd;
+}
+
+#purchase {
+	background-color: #CCCCCC;
+}
+
+#purchase tr {
+	background-color: #E7F3FF;
+}
+
+#purchase td {
+	background-color: inherit;
+	vertical-align: middle;
+}
+
+#purchase .whiteitem {
+	background-color: #f5f5f5;
+}
+
+#cd tr {
+	background-color: #f5f5f5;
+}
+
+#address tr {
+	background-color: #f5f5f5;
+}
+
+#invoice {
+	display: none;
+}
+
+#invoice tr {
+	background-color: #f5f5f5;
+}
+
+.greytxt {
+	color: gray;
+}
+
+.tableInfo {
+	padding-left: 10px;
+	vertical-align: middle;
+	color: gray;
+}
+
+.paymentLnk {
+	cursor: pointer;
+	border-style: none;
+	border-color: inherit;
+	border-width: 0;
+	vertical-align: middle;
+}

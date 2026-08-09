@@ -1,0 +1,125 @@
+{
+    "asncc": {
+        "md5": "e4724b8b35d8c279eebf081af2b16929",
+        "size": "4.03 MB",
+        "version": "3.14.15 - 2026-01-30"
+    },
+    "asncl": {
+        "md5": "5c019ab021335f0f288a311910b0c201",
+        "size": "1.33 MB",
+        "version": "3.14.15 - 2020-05-29"
+    },
+    "asncpp": {
+        "md5": "ad2e14dc07bef5246b9f97c87af5e0ac",
+        "size": "3.95 MB",
+        "version": "3.14.15 - 2026-01-30"
+    },
+    "asncsc": {
+        "md5": "d51d44dd30deae3b61e6cccfe3f42d2c",
+        "size": "4.31 MB",
+        "version": "3.14.15 - 2026-01-30"
+    },
+    "asndt": {
+        "md5": "ee2707ec1756d43a7ed184e7b1ee7ef1",
+        "size": "6.36 MB",
+        "version": "3.14.1 - 2026-01-30"
+    },
+    "asngc": {
+        "md5": "c7f519f78651a2d393ecc6dbb3ed9e5d",
+        "size": "3.95 MB",
+        "version": "3.14.15 - 2026-01-30"
+    },
+    "asnjc": {
+        "md5": "c0ad952f6c0b16cdeb2526ac159feb1a",
+        "size": "4.32 MB",
+        "version": "3.14.15 - 2026-01-30"
+    },
+    "asnrt": {
+        "c": {
+            "linux32": {
+                "md5": "d8648a3e56c0424448a04a453e069430",
+                "size": "73 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "linux64": {
+                "md5": "22d3816509b45a4ac28f0b420a16fdee",
+                "size": "72 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "macos_arm64": {
+                "md5": "e7ab832cca3c46babd6a23f466266954",
+                "size": "74 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "macos_intel": {
+                "md5": "e5c6e2beea0ac2a3b99bbf2c26da2372",
+                "size": "78 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "win32": {
+                "md5": "cfd2a2fcf597931ae9c74186de008c0a",
+                "size": "88 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "win64": {
+                "md5": "553b62df4d6cc5c428022fe2a85dfb57",
+                "size": "156 KB",
+                "version": "3.14.15 - 2026-01-15"
+            }
+        },
+        "cpp": {
+            "linux32": {
+                "md5": "b17838c25b6ecd821abbf2339f8938c6",
+                "size": "551.2 KB",
+                "version": "3.14.15 - 2022-09-21"
+            },
+            "linux64": {
+                "md5": "2741530449ba6af66c0c82bb85bf5b3b",
+                "size": "551.92 KB",
+                "version": "3.14.15 - 2022-09-21"
+            },
+            "mac32": {
+                "md5": "41c51189658713f06a62061426cf87b0",
+                "size": "298.17 KB",
+                "version": "3.14.15 - 2022-09-21"
+            },
+            "mac64": {
+                "md5": "fc782923dc45c28df213d4e4f644f56b",
+                "size": "290.26 KB",
+                "version": "3.14.15 - 2022-09-21"
+            },
+            "win32": {
+                "md5": "122caab11788620a4db05c554ae33119",
+                "size": "1.95 MB",
+                "version": "3.14.15 - 2022-09-21"
+            },
+            "win64": {
+                "md5": "2792ce14c21cb413dde48d6aa2f1a60d",
+                "size": "2.12 MB",
+                "version": "3.14.15 - 2022-09-21"
+            }
+        },
+        "cs": {
+            "md5": "57ccb0e77571600e418980b1edac4a73",
+            "size": "386 KB",
+            "version": "3.14.15 - 2020-04-15"
+        },
+        "go": {
+            "md5": "a9f6abdc3d90eab82283b9d93f1ae91f",
+            "size": "177 KB",
+            "version": "3.14.15 - 2020-04-15"
+        },
+        "java": {
+            "android": {
+                "md5": "bff466a00ca17ef118fa3a54efceb5ce",
+                "size": "324 KB",
+                "version": "3.14.15 - 2026-01-15"
+            },
+            "java": {
+                "md5": "aedb17dfe95b3f8d2db07005efaa513e",
+                "size": "364 KB",
+                "version": "3.14.15 - 2026-01-15"
+            }
+        }
+    }
+}
